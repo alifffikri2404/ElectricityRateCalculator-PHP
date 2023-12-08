@@ -1,0 +1,17 @@
+.tablePerDay {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+.tablePerDay th, .tablePerDay td {
+    border-top: 1px solid #ddd;
+    border-bottom: 1px solid #ddd;
+    border-left: none;
+    border-right: none;
+    padding: 8px;
+    text-align: left;
+}
+
+.tablePerDay th {
+    background-color: #8ADAB2;
+}

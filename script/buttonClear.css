@@ -1,0 +1,19 @@
+.buttonClear {
+    display: inline-block;
+    padding: 8px 30px;
+    font-size: 16px;
+    background-color: #FF6969;
+    color: white;
+    border-style: solid;
+    border-color: #22092C;
+    border-radius: 15px;
+    font-weight: bold;
+    text-align: center;
+    transition-duration: 0.4s;
+    cursor: pointer;
+}
+
+.buttonClear:hover {
+    background-color: #FF6969;
+    color: white;
+}

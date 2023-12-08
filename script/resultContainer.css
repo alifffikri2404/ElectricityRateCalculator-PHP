@@ -1,0 +1,35 @@
+.result-info {
+    background-color: #F1F6F9;
+    padding: 10px;
+    width: 420px;
+    height: 220px;
+    margin: auto;
+    border-radius: 15px;
+    border-style: solid;
+    border-width: 2px;
+    border-color: #0D1282;
+}
+
+.result-info p {
+    font-size: 18px;
+    margin: 8px 0;
+    color: #4E4FEB;
+    font-weight: bold;
+    text-indent: 30px;
+}
+
+.value-box {
+    border-style: solid;
+    border-width: 1px;
+    border-color: #526D82;
+    width: 150px;
+    margin-left: 30px;
+    padding: 10px;
+    background-color: #f0f0f0;
+    font-weight: bold;
+    margin-top: 5px;
+}
+
+.value-box-horizontal {
+    display: flex;
+}

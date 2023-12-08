@@ -1,0 +1,15 @@
+.tablePerHour {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+.tablePerHour th, .tablePerHour td {
+    border: none;
+    border-bottom: 1px solid #ddd;
+    padding: 8px;
+    text-align: left;
+}
+
+.tablePerHour th {
+    background-color: #6DB9EF;
+}

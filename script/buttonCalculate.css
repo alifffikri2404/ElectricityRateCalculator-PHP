@@ -1,0 +1,19 @@
+.buttonCalculate {
+    display: inline-block;
+    padding: 8px 19px;
+    font-size: 16px;
+    background-color: #4CAF50;
+    color: white;
+    border-style: solid;
+    border-color: #1B4242;
+    border-radius: 15px;
+    font-weight: bold;
+    text-align: center;
+    transition-duration: 0.4s;
+    cursor: pointer;
+}
+
+.buttonCalculate:hover {
+    background-color: #45a049;
+    color: white;
+}
