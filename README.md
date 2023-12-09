@@ -32,5 +32,5 @@ To run this calculator program, you need to have a PHP environment set up:
 
 ## Credits
 
-- Developed by **Muhammad Aliff Fikri bin Anuar Hidayat**
-- Latest update from **9 December 2023**
+- Developed by: **Muhammad Aliff Fikri bin Anuar Hidayat**
+- Last update: **9th December 2023**
