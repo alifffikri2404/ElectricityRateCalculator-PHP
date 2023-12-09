@@ -4,10 +4,8 @@
 }
 
 .tablePerDay th, .tablePerDay td {
-    border-top: 1px solid #ddd;
+    border: none;
     border-bottom: 1px solid #ddd;
-    border-left: none;
-    border-right: none;
     padding: 8px;
     text-align: left;
 }
