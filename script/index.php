@@ -121,7 +121,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                 <td><?php echo $day; ?></td>
                 <td><?php echo $day; ?></td>
                 <td><?php echo $energyPerDay; ?></td>
-                <td><?php echo $totalCostHour; ?></td>
+                <td><?php echo $totalCostDay; ?></td>
             </tr>
         <?php } ?>
     </table>
