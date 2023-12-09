@@ -1,7 +1,7 @@
 # Electricity Rates Calculator
 
 This PHP program **calculates electricity rates per hour and per day** based on user input of **voltage (V)**, **current (A)**, and **current rates** from TNB's Tariff Rates.
-This calculator program implementing both **PHP plain (vanilla)** and **CSS framework** for styling.
+This calculator program implementing both **PHP plain (vanilla)** and **CSS framework** for styling without relying on any additional frameworks or libraries.
 
 ## Features
 
@@ -24,7 +24,7 @@ This calculator program implementing both **PHP plain (vanilla)** and **CSS fram
 To run this calculator program, you need to have a PHP environment set up:
 
 1. Clone or download the repository.
-2. Open `index.php` in your PHP-supported server environment (e.g., XAMPP, WAMP).
+2. Open `index.php` in your PHP-supported server environment (e.g. XAMPP or WAMP).
 3. Start the server and access the project via the browser.
 4. Enter the required values (voltage, current, rate) and click 'Calculate'.
 5. View the calculated electricity rates per hour and per day.
@@ -32,5 +32,5 @@ To run this calculator program, you need to have a PHP environment set up:
 
 ## Credits
 
-Developed by **Muhammad Aliff Fikri bin Anuar Hidayat**
-Latest update from **9 December 2023**
+- Developed by **Muhammad Aliff Fikri bin Anuar Hidayat**
+- Latest update from **9 December 2023**
