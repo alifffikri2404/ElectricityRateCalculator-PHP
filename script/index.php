@@ -35,7 +35,7 @@
             <label for="current" class="label">Ampere (A)</label>
         </div>
         <div class="form-group">
-            <label for="rate" class="high-label">Current Rate</label>
+            <label for="rate" class="high-label">Current Rates</label>
             <input type="text" 
                 class="form-control" 
                 name="rate"
