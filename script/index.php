@@ -62,72 +62,100 @@
         }
     </script>
 <?php
+function calculatePower($voltage, $current){
+    $powerWh = $voltage * $current;
+    $powerkWh = $powerWh / 1000;
+
+    return array('powerWh' => $powerWh,'powerkWh'=> $powerkWh);
+}
+
+function tableHour($rowHour, $hour){
+    echo '<table class="tablePerHour">';
+    echo '<tr>
+            <th>#</th>
+            <th>Hour</th>
+            <th>Energy (kWh)</th>
+            <th>Total Rate (RM)</th>
+        </tr>';
+    foreach($rowHour as $row){
+        echo "<tr>
+            <td>{$row['hour']}</td>
+            <td>{$row['hour']}</td>
+            <td>{$row['energyPerHour']}</td>
+            <td>{$row['totalCostHour']}</td>
+        </tr>";
+    }
+    echo '</table>';
+}
+
+function tableDay($rowDay, $day){
+    echo '<table class="tablePerDay">';
+    echo '<tr>
+            <th>#</th>
+            <th>Day</th>
+            <th>Energy (kWh)</th>
+            <th>Total Rate (RM) </th>
+        </tr>';
+        foreach($rowDay as $row){
+            echo "<tr>
+                <td>{$row['day']}</td>
+                <td>{$row['day']}</td>
+                <td>{$row['energyPerDay']}</td>
+                <td>{$row['totalCostDay']}</td>
+            </tr>";
+        }
+        echo '</table>';
+}
+
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $voltage = $_POST['voltage'];
     $current = $_POST['current'];
     $rateSen = $_POST['rate'];
 
-    $powerWh = $voltage * $current;
-    $powerkWh = $powerWh / 1000;
     $rateRM = $rateSen / 100;
+    $powerArray = calculatePower($voltage, $current);
+    $powerWh = $powerArray['powerWh'];
+    $powerkWh = $powerArray['powerkWh'];
+
+    echo "<br>
+        <div class='result-info'>";
+    echo "<p>TOTAL POWER</p>";
+    echo "<div class='value-box-horizontal'>";
+    echo "<div class='value-box'>$powerWh Wh</div>";
+    echo "<div class='value-box'>$powerkWh kWh</div>";
+    echo "</div>";
+    echo "<p>RATE</p>";
+    echo "<div class='value-box'>RM$rateRM</div>";
+    echo "</div>";
+
+    $rowHour = array();
+    for ($hour = 1; $hour <= 24; $hour++) {
+        $energyPerHour = $powerkWh * $hour;
+        $totalCostHour = number_format($energyPerHour * $rateRM, 2);
+        $rowHour[] = array('hour' => $hour, 'energyPerHour' => $energyPerHour, 'totalCostHour' => $totalCostHour);
+    }
+
+    echo '<br>
+        <div class="hour-table">';
+    tableHour($rowHour, 24);
+    echo '</div>
+        <br>';
+
+    $rowDay = array();
+    for ($day = 1; $day <= 7; $day++) {
+        $energyPerDay = $powerkWh * 24 * $day;
+        $totalCostDay = number_format($energyPerDay * $rateRM, 2);
+        $rowDay[] = array('day' => $day, 'energyPerDay' => $energyPerDay, 'totalCostDay' => $totalCostDay);
+    }
+
+    echo '<br>
+        <div class="day-table">';
+    tableDay($rowDay, 7);
+    echo '</div>
+        <br>';
+}
 ?>
-<br>
-<div class="result-info">
-    <p>TOTAL POWER</p>
-    <div class="value-box-horizontal">
-        <div class="value-box"><?php echo $powerWh; ?> Wh</div>
-        <div class="value-box"><?php echo $powerkWh; ?> kWh</div>
-    </div>
-    <p>RATE</p>
-    <div class="value-box">RM<?php echo $rateRM; ?></div>
-</div>
-<br>
-<div class="hour-table">
-    <table id="tablePerHour" class="tablePerHour">
-	<tr>
-            <th>#</th>
-            <th>Hour</th>
-            <th>Energy (kWh)</th>
-            <th>Total Rate (RM)</th>
-        </tr>
-        <?php
-        for ($hour = 1; $hour <= 24; $hour++) {
-            $energyPerHour = $powerkWh * $hour;
-            $totalCostHour = number_format($energyPerHour * $rateRM, 2);
-        ?>
-            <tr>
-                <td><?php echo $hour; ?></td>
-                <td><?php echo $hour; ?></td>
-                <td><?php echo $energyPerHour; ?></td>
-                <td><?php echo $totalCostHour; ?></td>
-            </tr>
-        <?php } ?>
-    </table>
-</div><br>
-<div class="day-table">
-    <table id="tablePerDay" class="tablePerDay">
-	<tr>
-            <th>#</th>
-            <th>Day</th>
-            <th>Energy (kWh)</th>
-            <th>Total Rate (RM) </th>
-        </tr>
-	<?php
-	for ($day = 1; $day <= 7; $day++) {
-            $energyPerDay = $powerkWh * 24 * $day;
-            $totalCostDay = number_format($energyPerDay * $rateRM, 2);
-        ?>
-            <tr>
-                <td><?php echo $day; ?></td>
-                <td><?php echo $day; ?></td>
-                <td><?php echo $energyPerDay; ?></td>
-                <td><?php echo $totalCostDay; ?></td>
-            </tr>
-        <?php } ?>
-    </table>
-    <br>
-</div>
-<?php } ?>
+
 </div>
 </body>
 </html>
